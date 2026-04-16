@@ -6,13 +6,23 @@ let count = 0;
 
     incbtn.addEventListener('click', ()=> {
       count++;
-      counter.innerText = count;
+      updateColor(count);
     });
     decbtn.addEventListener('click', ()=> {
-      count--;
-      counter.innerText = count;
+      if(count>0) count--;
+      updateColor(count);
     });
     resetbtn.addEventListener('click', ()=> {
       count = 0;
-      counter.innerText = count;
+      updateColor(count);
     });
+
+    function updateColor(count) {
+      counter.innerText = count;
+      if(count>0) {
+        counter.style.color = "green";
+      }
+      else{
+        counter.style.color = "white";
+      }
+    }
